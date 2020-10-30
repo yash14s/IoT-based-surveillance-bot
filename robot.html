@@ -1,0 +1,76 @@
+<html>
+<style>
+    body {
+        height: 100%;
+        background: linear-gradient(30deg, darkolivegreen 50%,khaki 50%);
+    }
+    
+    .main{
+        text-align: center;
+        color:darkolivegreen;
+        background:khaki;
+        font-weight: bolder;
+        font-family: "Comic Sans MS", Comic Sans, cursive;
+        
+    }
+    
+    </style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+        <h2>WELCOME TO THE SURVEILLANCE CENTER           </h2>
+            <h3>You can now access the live surveillance </h3>
+        <p>Date/Time: <span id="datetime"></span>        </p>
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+<h3>Akshara Pramod | Kevin Ajith | Yash Srivastava</h3>
+
+    </div>
+    
+
+<img src="http://192.168.29.176:8081" /> <!--Enter the IP Address of your Raspberry Pi-->
+<div style="float:right">
+
+</div>
+<div style=" height:400px; width:300px; float:right;">
+<center>
+<h2>Surveillance Robot</h2><br><br>
+<a href="#" id="up" style="font-size:30px;text-decoration:none;">  &#x1F881;&#x1F881;<br>Forward</a><br><br></center>
+<a href="#" id="left" style="font-size:30px;text-decoration:none;"> &#x1F880;&#x1F880;Left</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#" id="right" style="font-size:30px; text-decoration:none;"> Right &#x1F882;&#x1F882;</a><br><br>
+<center><a href="#" id="down" style="font-size:30px;text-decoration:none;"> Backward<br> &#x1F883;&#x1F883;</a></center>
+</div>
+
+<script>
+$( document ).ready(function(){
+    $("#down").on("mousedown", function() {
+     $.get('/down_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#up").on("mousedown", function() {
+     $.get('/up_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#left").on("mousedown", function() {
+     $.get('/left_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#right").on("mousedown", function() {
+     $.get('/right_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+});
+</script>
+
+</body>
+</html>
